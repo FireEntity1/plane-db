@@ -1,30 +1,43 @@
-<script>
-	export let name;
-</script>
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset='utf-8'>
+		<meta name='viewport' content='width=device-width,initial-scale=1'>
 
-<main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
-</main>
+		<title>PlaneDB</title>
 
-<style>
-	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
-	}
+		<link rel='icon' type='image/png' href='/favicon.png'>
+		<link rel='stylesheet' href='/global.css'>
+		<link rel='stylesheet' href='/build/bundle.css'>
 
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
-	}
+		<script src="index.js"> </script>
+	</head>
 
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
-	}
-</style>
+	<body>
+		<div class="header">
+			<h1>Plane DB</h1>
+		</div>
+		<div class="search">
+		<input type="text" placeholder="Enter aircraft name" id="search">
+		</div>
+		<div class="info">
+			<table id="table">
+				<tr>
+					<th>Manufacturer</th>
+					<th>Model</th>
+					<th>Engine Type</th>
+					<th>Max Speed (kts)</th>
+					<th>Service Ceiling (ft)</th>
+					<th>Weight (lbs)</th>
+					<th>Length (ft)</th>
+					<th>Height (ft)</th>
+					<th>Wingspan (ft)</th>
+					<th>Range (nmi)</th>
+				</tr>
+				<tr id="data">
+
+				</tr>
+			</table>
+		</div>
+	</body>
+</html>
