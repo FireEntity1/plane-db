@@ -33,7 +33,7 @@ function search() {
                 return response.json();
             })
             .then(data => {
-                if (!Object.values(data).includes("model")) {
+                if (!data[0]) {
                     document.getElementById("errorMsg").innerHTML = "Aircraft not found";
                     document.getElementById("search").value = ""
                 } else {
