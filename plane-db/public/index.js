@@ -33,21 +33,26 @@ function search() {
                 return response.json();
             })
             .then(data => {
-            let row = table.insertRow();
-            document.getElementById("search").value = "";
-            row.innerHTML = `
-                <td>${data[0].manufacturer}</td>
-                <td>${data[0].model}</td>
-                <td>${data[0].engine_type}</td>
-                <td>${data[0].max_speed_knots}</td>
-                <td>${data[0].ceiling_ft}</td>
-                <td>${data[0].gross_weight_lbs}</td>
-                <td>${data[0].length_ft}</td>
-                <td>${data[0].height_ft}</td>
-                <td>${data[0].wing_span_ft}</td>
-                <td>${data[0].range_nautical_miles}</td>`;
-                row.classList.add("animate-row");
-            })
+                if (!Object.values(data).includes("model")) {
+                    document.getElementById("errorMsg").innerHTML = "Aircraft not found";
+                    document.getElementById("search").value = ""
+                } else {
+                let row = table.insertRow();
+                document.getElementById("search").value = "";
+                row.innerHTML = `
+                    <td>${data[0].manufacturer}</td>
+                    <td>${data[0].model}</td>
+                    <td>${data[0].engine_type}</td>
+                    <td>${data[0].max_speed_knots}</td>
+                    <td>${data[0].ceiling_ft}</td>
+                    <td>${data[0].gross_weight_lbs}</td>
+                    <td>${data[0].length_ft}</td>
+                    <td>${data[0].height_ft}</td>
+                    <td>${data[0].wing_span_ft}</td>
+                    <td>${data[0].range_nautical_miles}</td>`;
+                    row.classList.add("animate-row");}
+                }
+            )
             .catch(error => {
                 console.error('Error:', error);
             });
