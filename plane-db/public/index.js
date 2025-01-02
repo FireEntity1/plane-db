@@ -20,10 +20,12 @@ function setup() {
 
 function search() {
     if (document.getElementById("search").value.length >= 2 && timeout == false) {
-
+		let correctedSearch = document.getElementById("search").value.split(" ");
+		correctedSearch = correctedSearch[correctedSearch.length-1];
         timeout = true;
         setTimeout(apiTimeout,5000);
-        fetch (apiUrl + "model=" + document.getElementById("search").value)
+        document.getElementById("search").blur()
+        fetch (apiUrl + "model=" + correctedSearch)
             .then(response => {
                 if (!response.ok) {
                 throw new Error('network response broke');
@@ -44,16 +46,18 @@ function search() {
                 <td>${data[0].height_ft}</td>
                 <td>${data[0].wing_span_ft}</td>
                 <td>${data[0].range_nautical_miles}</td>`;
+                row.classList.add("animate-row");
             })
             .catch(error => {
                 console.error('Error:', error);
             });
         } else if (timeout == true) {
-            document.getElementById("search").value = "Timeout, slow down";
+            document.getElementById("errorMsg").innerHTML = "Timeout, slow down";
         }
     }
 
     function apiTimeout() {
         timeout = false;
+        document.getElementById("errorMsg").innerHTML = " ";
     }
     

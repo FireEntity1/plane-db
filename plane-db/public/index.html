@@ -15,10 +15,11 @@
 
 	<body>
 		<div class="header">
-			<h1>Plane DB</h1>
+			<a href="https://github.com/FireEntity1/plane-db" target="_blank"><h1>Plane DB</h1></a>
 		</div>
 		<div class="search">
 		<input type="text" placeholder="Enter aircraft name" id="search">
+		<p id="errorMsg"> </p>
 		</div>
 		<div class="info">
 			<table id="table">

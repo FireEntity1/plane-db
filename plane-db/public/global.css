@@ -2,7 +2,8 @@ html, body {
 	position: relative;
 	width: 100%;
 	height: 100%;
-	background-color: #272D2D;
+	background-color: #1a071e;
+	background-image: linear-gradient(#0c0c0c,#1a071e);
 	color:#f9f8e9;
 }
 
@@ -10,20 +11,13 @@ body {
 	margin: 0;
 	padding: 8px;
 	box-sizing: border-box;
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+	/* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif; */
+	font-family:'Courier New', Courier, monospace;
 }
 
 a {
-	color: rgb(0,100,200);
+	color:#f9f8e9;
 	text-decoration: none;
-}
-
-a:hover {
-	text-decoration: underline;
-}
-
-a:visited {
-	color: rgb(0,80,160);
 }
 
 label {
@@ -39,6 +33,7 @@ input, button, select, textarea {
 	box-sizing: border-box;
 	border: 1px solid #ccc;
 	border-radius: 2px;
+	transition:box-shadow 1s;
 }
 
 input:disabled {
@@ -46,9 +41,12 @@ input:disabled {
 }
 
 button {
-	color: #333;
-	background-color: #f4f4f4;
+	color: #f4f4f4;
+	background-color: #333;
 	outline: none;
+	border:none;
+	border-radius:2em;
+	padding:0.5em;
 }
 
 button:disabled {
@@ -80,6 +78,7 @@ h1 {
 	width:auto;
 	height:10vh;
 	font-size:3vh;
+	border-radius: 2em;
 }
 
 .search {
@@ -93,4 +92,27 @@ th, td {
 }
 table {
 	margin:5vw;
+}
+
+.info {
+	overflow-x:auto;
+}
+
+input:hover,input:focus {
+	box-shadow: 0px 0px 40px 20px rgb(236, 162, 255);
+}
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+		transform:translateX(2vw);
+	}
+	100% {
+		opacity:1;
+		transform:translateX(0vw);
+	}
+}
+
+.animate-row {
+	animation: fadeIn 0.8s ease-out;
 }
