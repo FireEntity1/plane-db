@@ -4,4 +4,7 @@ A reference site that utilizes an API to display detailed aircraft information f
 
 **Usage:** Enter aircraft name (e.g. *Boeing 737-800* or simply *737-800*) and a row will be added to the table. Compare the statistics of as many aircraft as you please!
 
+### Sample requests you could make
+`Airbus A330`, `Boeing 787`, `Airbus A350`
+
 Visit the site at [https://plane-db.vercel.app](https://plane-db.vercel.app)
